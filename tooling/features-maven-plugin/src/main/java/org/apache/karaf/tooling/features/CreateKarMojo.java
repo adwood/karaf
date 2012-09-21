@@ -150,7 +150,6 @@ public class CreateKarMojo extends MojoSupport {
         File archiveFile = getArchiveFile(outputDirectory, finalName, null);
 
         MavenArchiver archiver = new MavenArchiver();
-        MavenArchiveConfiguration configuration = new MavenArchiveConfiguration();
         archiver.setArchiver(jarArchiver);
         archiver.setOutputFile(archiveFile);
 
@@ -173,7 +172,7 @@ public class CreateKarMojo extends MojoSupport {
                 archiver.getArchiver().addDirectory(resourcesDir);
             }
 
-            archiver.createArchive(project, configuration);
+            archiver.createArchive(project, archive);
 
             return archiveFile;
         } catch (Exception e) {
